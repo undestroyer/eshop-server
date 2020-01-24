@@ -1,4 +1,6 @@
-﻿namespace server.Models.Data
+﻿using System.Collections.Generic;
+
+namespace server.Models.Data
 {
     public class Product
     {
@@ -7,5 +9,6 @@
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public Mesurement Mesurement { get; set; }
+        public List<CartItem> CartItems { get; set; }
     }
 }
