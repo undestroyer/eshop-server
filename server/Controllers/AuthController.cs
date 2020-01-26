@@ -88,14 +88,15 @@ namespace server.Controllers
             var authClaims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(ClaimTypes.Name, user.UserName),
                 };
 
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ItIsSimpleSecureKey"));
 
             return new JwtSecurityToken(
-                issuer: "http://example.com",
-                audience: "http://example.com",
+                issuer: "http://localhost:5000",
+                audience: "http://localhost:5000",
                 expires: DateTime.Now.AddHours(3),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)

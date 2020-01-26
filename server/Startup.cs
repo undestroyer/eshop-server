@@ -50,11 +50,11 @@ namespace server
                 options.RequireHttpsMetadata = false;
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = "http://example.com",
-                    ValidIssuer = "http://example.com",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SecureKey"))
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidAudience = "http://localhost:5000",
+                    ValidIssuer = "http://localhost:5000",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ItIsSimpleSecureKey"))
                 };
             });
         }
