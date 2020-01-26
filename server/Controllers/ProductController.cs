@@ -29,6 +29,7 @@ namespace server.Controllers
             var productQuery = context.Products.AsQueryable();
             if (!string.IsNullOrEmpty(nameFilter))
             {
+                /// TODO: имя проверяется регистрозависимо. передалать на регистронезависимый поиск.
                 productQuery = productQuery.Where(x => x.Name.Contains(nameFilter));
             }
             var products = await productQuery
